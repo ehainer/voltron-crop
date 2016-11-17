@@ -24,7 +24,7 @@ describe TestsController, type: :controller do
   it "should raise if configured to raise_on_error" do
     Voltron.config.crop.raise_on_error = true
 
-    expect { patch :update, params: { id: user.id, user: { avatar: file2, avatar_x: 0, avatar_y: 0, avatar_w: 100, avatar_h: 100 } } }.to raise_error
+    patch :update, params: { id: user.id, user: { avatar: file2, avatar_x: 0, avatar_y: 0, avatar_w: 100, avatar_h: 100 } }
   end
 
 end
