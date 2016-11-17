@@ -7,12 +7,11 @@ module Voltron
 
     class Crop
 
-      attr_accessor :min_width, :min_height, :raise_on_error
+      attr_accessor :min_width, :min_height
 
       def initialize
         @min_width ||= 300
         @min_height ||= 300
-        @raise_on_error ||= false
       end
     end
   end

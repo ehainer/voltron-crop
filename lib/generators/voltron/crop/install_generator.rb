@@ -31,11 +31,6 @@ module Voltron
 
   # The minimum height of the cropped image. If the cropped image height is smaller than this it will be scaled up automatically
   # config.crop.min_height = 300
-
-  # Whether or not to raise when the crop fails. The specific error type can vary since a variety of errors can occur
-  # depending on what happened (invalid image filetype, corrupt image, etc.)
-  # By default any error will result in no file being passed in the params, and the error logged instead.
-  # config.crop.raise_on_error = false
 CONTENT
             end
           end

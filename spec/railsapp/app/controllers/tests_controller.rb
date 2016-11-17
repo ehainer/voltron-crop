@@ -16,14 +16,6 @@ class TestsController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    puts "---------------------------------------"
-    puts "---------------------------------------"
-    puts "---------------------------------------"
-    puts Voltron.config.crop.raise_on_error
-    puts "---------------------------------------"
-    puts "---------------------------------------"
-    puts "---------------------------------------"
-
     if @user.update(user_params)
       head :ok
     else
