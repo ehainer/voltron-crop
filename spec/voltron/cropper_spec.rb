@@ -30,7 +30,7 @@ describe Voltron::Cropper do
   end
 
   it "should have a crop param key for each uploader" do
-    expect(cropper1.crop_keys).to eq(["crop_avatar"])
+    expect(cropper1.crop_keys).to eq(["avatar"])
   end
 
   it "should not have an uploaded file if no file exists on the model" do
@@ -44,8 +44,8 @@ describe Voltron::Cropper do
   end
 
   it "should yield each set of crop data" do
-    cropper1.params = { "id" => user2.id, "user" => { "crop_avatar" => { "x" => 0, "y" => 0, "w" => 100, "h" => 100 } } }
-    expect { |b| cropper1.each_crop(&b) }.to yield_with_args(String, Hash)
+    cropper1.params = { "id" => user2.id, "user" => { "avatar_x" => 0, "avatar_y" => 0, "avatar_w" => 100, "avatar_h" => 100 } }
+    expect { |b| cropper1.each_crop(&b) }.to yield_with_args(Hash)
   end
 
   it "has a previously uploaded file" do

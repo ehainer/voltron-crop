@@ -11,18 +11,26 @@ module Voltron
       @options[:id_param] ||= "id"
     end
 
+    # Look for valid crop data in the params, creating a hash of crop data for each valid croppable image
     def each_crop
-      crop_params = (params[resource_name] || {}).select { |k,v| crop_keys.include?(k) }
+      crop_keys.each do |name|
+        if ["#{name}_x", "#{name}_y", "#{name}_w", "#{name}_h"].all? { |k| params[resource_name].key?(k) }
+          data = {
+            x: params[resource_name]["#{name}_x"],
+            y: params[resource_name]["#{name}_y"],
+            w: params[resource_name]["#{name}_w"],
+            h: params[resource_name]["#{name}_h"],
+            image: params[resource_name][name] || upload_file(name),
+            name: name
+          }
 
-      crop_params.each do |name,data|
-        data[:name] = name.sub(/^crop_/, "")
-        data[:image] ||= upload_file(data[:name])
-        yield(name, data) if data[:image]
+          yield(data) if File.exists?(data[:image].try(:path))
+        end
       end
     end
 
     def crop_keys
-      resource.uploaders.map { |name,uploader| "crop_#{name}" }
+      resource.uploaders.keys.map(&:to_s)
     end
 
     def resource_name

@@ -9,14 +9,14 @@ describe TestsController, type: :controller do
   before(:each) { subject.class.croppable :users }
 
   it "should crop a valid image" do
-    post :create, params: { user: { crop_avatar: { x: 0, y: 0, w: 100, h: 100, image: file1 } } }
+    post :create, params: { user: { avatar: file1, avatar_x: 0, avatar_y: 0, avatar_w: 100, avatar_h: 100 } }
     expect(response).to have_http_status(:ok)
   end
 
   it "should fail with an invalid crop target" do
     expect(user.avatar.to_s).to match(/default\-.*/)
 
-    patch :update, params: { id: user.id, user: { crop_avatar: { x: 0, y: 0, w: 100, h: 100, image: file2 } } }
+    patch :update, params: { id: user.id, user: { avatar: file2, avatar_x: 0, avatar_y: 0, avatar_w: 100, avatar_h: 100 } }
 
     expect(user.avatar.to_s).to match(/default\-.*/)
   end
@@ -24,7 +24,7 @@ describe TestsController, type: :controller do
   it "should raise if configured to raise_on_error" do
     Voltron.config.crop.raise_on_error = true
 
-    expect { patch :update, params: { id: user.id, user: { crop_avatar: { x: 0, y: 0, w: 100, h: 100, image: file2 } } } }.to raise_error(MiniMagick::Error)
+    expect { patch :update, params: { id: user.id, user: { avatar: file2, avatar_x: 0, avatar_y: 0, avatar_w: 100, avatar_h: 100 } } }.to raise_error(MiniMagick::Error)
   end
 
 end

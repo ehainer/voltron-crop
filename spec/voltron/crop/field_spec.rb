@@ -13,7 +13,7 @@ describe Voltron::Crop::Field do
   it "can generate crop input markup" do
     image = user.avatar.to_s
 
-    expect(builder.crop_field(:avatar)).to eq("<input data-crop=\"#{image}\" type=\"file\" name=\"user[crop_avatar]\" id=\"user_crop_avatar\" />")
+    expect(builder.crop_field(:avatar)).to eq("<input data-crop=\"#{image}\" type=\"file\" name=\"user[avatar]\" id=\"user_avatar\" />")
   end
 
 end

@@ -4764,3 +4764,51 @@ Processing by UsersController#edit as HTML
 Completed 200 OK in 49ms (Views: 47.0ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/" for 127.0.0.1 at 2016-11-15 14:09:22 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 606ms (Views: 94.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/users.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for 127.0.0.1 at 2016-11-15 14:09:22 -0700
+Started GET "/assets/application.self-84c350b886d03e9066dc64982ddbf090ed69d7a43637e94272c82e9c1ba3b150.css?body=1" for 127.0.0.1 at 2016-11-15 14:09:22 -0700
+Started GET "/assets/voltron-crop.self-7c95df9d413b94b30d3fb31e9a150e8bee505a6270dabcd217e0662103d8efdf.css?body=1" for 127.0.0.1 at 2016-11-15 14:09:22 -0700
+Started GET "/assets/application.self-b89234cf2659d7fedea75bca0b8d231ad7dfc2f3f57fcbaf5f44ed9dc384137b.js?body=1" for 127.0.0.1 at 2016-11-15 14:09:22 -0700
+Started GET "/users/new" for 127.0.0.1 at 2016-11-15 14:09:25 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (11.9ms)
+  Rendered users/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 38ms (Views: 35.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2016-11-15 14:11:39 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (473.2ms)
+  Rendered users/new.html.erb within layouts/application (484.3ms)
+Completed 200 OK in 592ms (Views: 586.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/scaffold.self-f87869baadacf2097cd85c60bf8679819cf7c448b74b7458a3e8c392eceb33be.css?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/users.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/voltron-crop.self-7c95df9d413b94b30d3fb31e9a150e8bee505a6270dabcd217e0662103d8efdf.css?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/application.self-84c350b886d03e9066dc64982ddbf090ed69d7a43637e94272c82e9c1ba3b150.css?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/voltron-core.self-fe3729f6178deb14a3acea391ef2cdc4c72543b9e7b0fa88b216ffb1fc3afafc.js?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/voltron.self-6a3cf5192354f71615ac51034b3e97c20eda99643fcaf5bbe6d41ad59bd12167.js?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/voltron-dispatch.self-63af227f1b6df27ff24ab8ab8b4782092a47598e2c9b36aba9a5901d333353c9.js?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/cropit.self-d1dcdb884ff83687c9c4c9abd91b1fbcdd50cc0885c3e0dc26de679387162f22.js?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/action_cable.self-1641ec3e8ea24ed63601e86efcca7f9266e09f390e82199d56aa7e4bd50e1aa9.js?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/cable.self-6e0514260c1aa76eaf252412ce74e63f68819fd19bf740595f592c5ba4c36537.js?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/voltron-ext.self-6d76954414eaea59e986fae82e3eeccf3d44f14dc8f5cd2654a404dda4a56cf7.js?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/simple-slider.self-0812310f081c35c2007b9201bf71df488e97e059ea710e5e48743527b08db204.js?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/users.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/voltron-crop.self-84a18f15fb435c3aeb096a5082172d176c803797ecf66f27f9fb56005f45421f.js?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/application.self-b89234cf2659d7fedea75bca0b8d231ad7dfc2f3f57fcbaf5f44ed9dc384137b.js?body=1" for 127.0.0.1 at 2016-11-15 14:11:40 -0700
+Started GET "/assets/default-dcf4bf8327dec4a2f2a2fa481bebf973f599274079d3bfa4e97ee74eff449f5b.png" for 127.0.0.1 at 2016-11-15 14:11:40 -0700

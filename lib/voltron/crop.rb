@@ -21,7 +21,7 @@ module Voltron
     module ControllerMethods
 
       def crop_image
-        params.crop!(cropper)
+        params.crop!(cropper) if params[cropper.resource_name.to_sym]
       end
 
       def cropper

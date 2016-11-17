@@ -26,7 +26,7 @@ class TestsController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:avatar)
+      params.require(:user).permit(:avatar, :remove_avatar)
     end
 
 end

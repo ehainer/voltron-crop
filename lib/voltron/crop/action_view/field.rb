@@ -4,10 +4,10 @@ module Voltron
 
       def crop_field(method, options={})
         @method = method
-        @options = options.symbolize_keys
+        @options = options.deep_symbolize_keys
 
         prepare
-        file_field "crop_#{method}", @options
+        file_field method, @options
       end
 
       private

@@ -81,7 +81,7 @@ Voltron.addModule('Crop', function(){
       },
 
       getName: function(field){
-        return _name + '[' + field +']';
+        return _name.replace(/([a-z0-9_]+)\]$/i, "$1_" + field + "]");
       },
 
       setImage: function(image){
@@ -148,7 +148,7 @@ Voltron.addModule('Crop', function(){
           _cropper.append(this.getDimensionInput());
           _cropper.append(this.getPreview());
           _cropper.append($('<div />', { class: 'zoom-container' }).append(this.getZoom()));
-          _cropper.append(this.getFileInput().attr('name', this.getName('image')));
+
           _cropper.cropit(this.getConfig());
 
           var borderWidth = _cropper.data('cropit').bgBorderWidthArray;
@@ -159,6 +159,8 @@ Voltron.addModule('Crop', function(){
             marginBottom: borderWidth[2],
             marginLeft: borderWidth[3]
           });
+
+          this.getFileInput().data('cropper', _cropper);
         }
         return _cropper;
       },
@@ -175,10 +177,9 @@ Voltron.addModule('Crop', function(){
     },
 
     addCrop: function(){
-      console.log(this);
-      var crop = Voltron.getModule('Crop').new($(this).attr('name'), $(this).data('crop'), $(this).data('options') || {});
+      var crop = Voltron('Crop/new', this, $(this).data('options'));
       $(this).closest('form').on('submit', $.proxy(crop.update, crop));
-      $(this).replaceWith(crop.getCropper());
+      $(this).before(crop.getCropper());
       crop.getZoom().simpleSlider();
     },
 
@@ -193,10 +194,11 @@ Voltron.addModule('Crop', function(){
       return false;
     },
 
-    new: function(name, image, options){
+    new: function(input, options){
       var crop = new Crop(options);
-      crop.setName(name);
-      crop.setImage(image);
+      crop.setFileInput($(input));
+      crop.setName($(input).attr('name'));
+      crop.setImage($(input).data('crop'));
       _crops[crop.getId()] = crop;
       return crop;
     }
