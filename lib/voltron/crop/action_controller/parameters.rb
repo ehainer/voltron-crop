@@ -6,7 +6,7 @@ module Voltron
     module Parameters
 
       def crop!(cropper)
-        cropper.params = @parameters
+        cropper.params = @parameters || {}
         cropper.each_crop do |crop|
           from = crop[:image].path
 

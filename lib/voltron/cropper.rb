@@ -13,6 +13,7 @@ module Voltron
 
     # Look for valid crop data in the params, creating a hash of crop data for each valid croppable image
     def each_crop
+      params[resource_name] ||= {}
       crop_keys.each do |name|
         if ["#{name}_x", "#{name}_y", "#{name}_w", "#{name}_h"].all? { |k| params[resource_name].key?(k) }
           data = {
