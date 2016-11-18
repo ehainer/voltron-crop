@@ -1,4 +1,3 @@
-require 'tempfile'
 require 'mini_magick'
 
 module Voltron
@@ -6,7 +5,7 @@ module Voltron
     module Parameters
 
       def crop!(cropper)
-        cropper.params = @parameters || {}
+        cropper.params = self.try(:to_unsafe_h) || {}
         cropper.each_crop do |crop|
           from = crop[:image].path
 
@@ -27,10 +26,10 @@ module Voltron
 
           # Get rid of the crop params, we no longer need them
           exclude = ["x", "y", "w", "h"].map { |i| "#{crop[:name]}_#{i}" }
-          @parameters[cropper.resource_name].reject! { |k,v| exclude.include?(k) } 
+          self[cropper.resource_name].reject! { |k,v| exclude.include?(k) } 
 
           # Set the actual attribute param to our "uploaded" file
-          @parameters[cropper.resource_name][crop[:name]] = crop[:image]
+          self[cropper.resource_name][crop[:name]] = crop[:image]
         end
       end
 
