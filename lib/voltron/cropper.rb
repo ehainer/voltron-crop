@@ -25,7 +25,7 @@ module Voltron
             name: name
           }
 
-          yield(data) if File.exists?(data[:image].try(:path))
+          yield(data) if !data[:image].nil? && File.exists?(data[:image].try(:path))
         end
       end
     end
