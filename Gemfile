@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-source 'httpss://gem.minow.io'
+source 'https://gem.minow.io'
 
 # Specify your gem's dependencies in voltron-crop.gemspec
 gemspec
