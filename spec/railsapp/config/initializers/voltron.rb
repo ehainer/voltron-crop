@@ -1,4 +1,5 @@
 Voltron.setup do |config|
+
   config.debug = true
 
   #config.crop.min_width = 100

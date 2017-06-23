@@ -5,9 +5,11 @@ module Voltron
       isolate_namespace Voltron
 
       initializer "voltron.crop.initialize" do
-        ::ActionController::Parameters.send :prepend, ::Voltron::Crop::Parameters
         ::ActionView::Helpers::FormBuilder.send :include, ::Voltron::Crop::Field
-        ::ActionController::Base.send :extend, ::Voltron::Crop
+
+        ActiveSupport.on_load :active_record do
+          ::ActiveRecord::Base.send :include, ::Voltron::Crop::Base
+        end
       end
 
     end

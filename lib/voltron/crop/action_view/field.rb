@@ -14,7 +14,13 @@ module Voltron
 
         def prepare
           @options[:data] ||= {}
-          @options[:data][:crop] = @options.delete(:image) || @object.send(@method).try(:url)
+          @options[:data].merge!({
+            crop_image: @options.delete(:image) || @object.send(@method).try(:url),
+            crop_cache: @object.send("#{@method}_cache"),
+            crop_x: @object.send("#{@method}_x"),
+            crop_y: @object.send("#{@method}_y"),
+            crop_zoom: @object.send("#{@method}_zoom")
+          })
         end
 
     end

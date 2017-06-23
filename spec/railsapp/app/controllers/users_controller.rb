@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
 
-  croppable
-
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   def index
-    Voltron.config.js.crop_image = view_context.image_path("19.jpg")
     @users = User.all
   end
 
@@ -57,6 +54,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:email, :avatar)
+      params.require(:user).permit(:email, :avatar, :avatar_cache, :avatar_x, :avatar_y, :avatar_w, :avatar_h, :avatar_zoom)
     end
 end
