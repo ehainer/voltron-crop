@@ -223,8 +223,8 @@ Voltron.addModule('Crop', function(){
 
     // Updates the crop image when an upload is completed
     onUploadComplete: function(o){
-      if(o.data.uploads){
-        var crop = $(o.element).data('crop');
+      var crop = $(o.element).data('crop');
+      if(o.data.uploads && crop){
         crop.setImage(o.data.uploads.first().url);
       }
     }
