@@ -8243,3 +8243,142 @@ Processing by UsersController#edit as HTML
 Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.1ms)
 
 
+Started GET "/users/8/edit" for 127.0.0.1 at 2017-06-22 21:16:31 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (15.3ms) [cache miss]
+  Rendered users/edit.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 485ms (Views: 458.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.self-84c350b886d03e9066dc64982ddbf090ed69d7a43637e94272c82e9c1ba3b150.css?body=1" for 127.0.0.1 at 2017-06-22 21:16:32 -0600
+Started GET "/assets/application.self-b89234cf2659d7fedea75bca0b8d231ad7dfc2f3f57fcbaf5f44ed9dc384137b.js?body=1" for 127.0.0.1 at 2017-06-22 21:16:32 -0600
+Started GET "/uploads/user/avatar/8/16.jpg" for 127.0.0.1 at 2017-06-22 21:16:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/uploads/user/avatar/8/16.jpg"):
+  
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.3) lib/rack/handler/webrick.rb:86:in `service'
+/home/ehainer/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+/home/ehainer/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+/home/ehainer/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/webrick/server.rb:290:in `block in start_thread'
+Started PATCH "/users/8" for 127.0.0.1 at 2017-06-22 21:16:46 -0600
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A8jyTD3bhemIoHaFgJMa1MwLtt5EjxJx6ohhNSa1OinDs7qzd7p1ionZuHmu9AagXz0OvH8WEahuSeSMqkGTdQ==", "user"=>{"email"=>"Eric", "avatar_x"=>"235.99999267578127", "avatar_y"=>"0", "avatar_w"=>"608", "avatar_h"=>"608", "avatar_zoom"=>"0", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f678df586a0 @tempfile=#<Tempfile:/tmp/RackMultipart20170622-4905-l7q8h2.jpg>, @original_filename="24.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"24.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update User", "id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "24.jpg"], ["updated_at", "2017-06-23 03:16:46.333811"], ["id", 8]]
+  [1m[35m (13.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/8/edit
+Completed 302 Found in 128ms (ActiveRecord: 14.2ms)
+
+
+Started GET "/users/8/edit" for 127.0.0.1 at 2017-06-22 21:16:46 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.4ms) [cache miss]
+  Rendered users/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/users/8" for 127.0.0.1 at 2017-06-22 21:16:53 -0600
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1BED3/CfUGXL6E+6QEYCCYsDVDK4nnYJOnXCcH1TwgMUaksguv6gBsqRgUZuIR59GDXsUIMHddC+tEfJ8adrXw==", "user"=>{"email"=>"Eric", "avatar_x"=>"222.32427746398486", "avatar_y"=>"205.68679650047056", "avatar_w"=>"237.6782994787757", "avatar_h"=>"237.6782994787757", "avatar_zoom"=>"0.5102880658436213"}, "commit"=>"Update User", "id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "24.jpg"], ["updated_at", "2017-06-23 03:16:53.890786"], ["id", 8]]
+  [1m[35m (20.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/8/edit
+Completed 302 Found in 73ms (ActiveRecord: 21.4ms)
+
+
+Started GET "/users/8/edit" for 127.0.0.1 at 2017-06-22 21:16:53 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.3ms) [cache miss]
+  Rendered users/edit.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 26ms (Views: 24.5ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/users/8" for 127.0.0.1 at 2017-06-22 21:17:01 -0600
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rYrWA5Y8v9R780LvAnRrOy82T4UD9TqFDA/k+03nqe5t8Z783F1Pt3qKjBMsE3dPvAD35zhsOVyIzmFCwRMAsg==", "user"=>{"email"=>"Eric", "avatar_x"=>"69.98999786376953", "avatar_y"=>"23.48999786376953", "avatar_w"=>"150", "avatar_h"=>"150", "avatar_zoom"=>"1"}, "commit"=>"Update User", "id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "24.jpg"], ["updated_at", "2017-06-23 03:17:01.631658"], ["id", 8]]
+  [1m[35m (13.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/8/edit
+Completed 302 Found in 62ms (ActiveRecord: 14.3ms)
+
+
+Started GET "/users/8/edit" for 127.0.0.1 at 2017-06-22 21:17:01 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.9ms) [cache miss]
+  Rendered users/edit.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-06-22 21:23:20 -0600
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-06-22 21:23:22 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.7ms) [cache miss]
+  Rendered users/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 26ms (Views: 24.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-06-22 21:23:34 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+JAlopNP5GTcknMwulyXLIOl5dXpCr1O3qsuwROuFOw4621d2S4UB93rvcyUO4tYEJNdt9KTvpdaaqt4n1q9sA==", "user"=>{"email"=>"", "avatar_x"=>"955.7818323287026", "avatar_y"=>"455.5592296638788", "avatar_w"=>"1088.4658454647258", "avatar_h"=>"1088.4658454647258", "avatar_zoom"=>"0.06790123456790122", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f678c2e0dd8 @tempfile=#<Tempfile:/tmp/RackMultipart20170622-4905-38tskv.jpg>, @original_filename="22.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"22.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (8.8ms) [cache miss]
+  Rendered users/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 330ms (Views: 33.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-06-22 21:23:44 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GD0h5duGYQbgM4Rcw6TVMWN33i7+ZSWyiYr/Ie+FJI3YRmkakeeRZeFKSqDtw8lF8EFmTMX8JmsNS3qYY3GN0Q==", "user"=>{"email"=>"", "avatar_cache"=>"1498188214-4905-0005-9581/22.jpg", "avatar_x"=>"1520.2956311148857", "avatar_y"=>"1562.226772257968", "avatar_w"=>"405.39413318504097", "avatar_h"=>"405.394133185041", "avatar_zoom"=>"0.31893004115226337"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.9ms) [cache miss]
+  Rendered users/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 29ms (Views: 26.3ms | ActiveRecord: 0.1ms)
+
+
