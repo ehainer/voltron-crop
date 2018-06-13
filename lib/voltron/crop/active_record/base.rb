@@ -24,7 +24,7 @@ module Voltron
               coordinates = [send("#{column}_x"), send("#{column}_y")].join('+')
 
               # Crop the image, scale up if it's smaller than the required crop size
-              img = ::MiniMagick::Image.new(upload.path)
+              img = upload.url.starts_with?('http') ? ::MiniMagick::Image.open(upload.url) : ::MiniMagick::Image.open(upload.path)
               img.crop("#{dimensions}+#{coordinates}")
               if img.width < Voltron.config.crop.min_width || img.height < Voltron.config.crop.min_height
                 img.resize "#{Voltron.config.crop.min_width}x#{Voltron.config.crop.min_height}"
@@ -36,7 +36,7 @@ module Voltron
 
               file = ActionDispatch::Http::UploadedFile.new({
                 type: upload.content_type,
-                filename: upload.file.original_filename,
+                filename: upload.file.filename,
                 head: "Content-Disposition: form-data; name=\"#{input_name}\"; filename=\"#{upload.filename}\"\r\nContent-Type: #{upload.content_type}\r\n",
                 tempfile: to
               })
